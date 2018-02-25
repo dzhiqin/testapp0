@@ -40,6 +40,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'pry'
+gem 'flexslider'
 group :production do
   gem 'pg'
 end
