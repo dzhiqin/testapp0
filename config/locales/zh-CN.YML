@@ -1,0 +1,5 @@
+en:
+  hello: "Hello world"
+  simple_captcha:
+    label: "需要验证"
+    placeholder: "在此处输入验证码.."

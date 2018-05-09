@@ -41,6 +41,8 @@ gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'pry'
 gem 'flexslider'
+gem 'simple_captcha2', require: 'simple_captcha'
+
 group :production do
   gem 'pg'
 end
