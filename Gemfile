@@ -42,7 +42,8 @@ gem 'font-awesome-rails'
 gem 'pry'
 gem 'flexslider'
 gem 'simple_captcha2', require: 'simple_captcha'
-
+gem 'thin'
+gem 'faye'
 group :production do
   gem 'pg'
 end
