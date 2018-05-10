@@ -1,0 +1,40 @@
+
+
+<h1>Faye</h1>
+<div id="chat" style="width:500px;height:300px;border: 1px solid black;overflow:scroll;">
+<!-- <% if @messages.present? %>
+  <% @messages.each do |message| %>
+    <p>
+      <%= message.username.split("@")[0] %>:<%= message.message %>
+    </p>
+  <% end %>
+<% end %> -->
+<p></p>
+</div>
+<%= form_for Message.new,:remote=>true do |f| %>
+<div class="">
+  <%= f.text_area :message %>
+  <%= f.submit "send" %>
+</div>
+<% end %>
+<script>
+  $(function() {
+    // Create a new client to connect to Faye
+    var client = new Faye.Client('http://localhost:9292/faye');
+    // Subscribe to the public channel
+    var public_subscription = client.subscribe('/messages/new', function(data) {
+      // $('#chat').prepend(data);
+      $('<p></p>').html(data.username+ ":"+data.msg).prependTo('#chat');
+    });
+
+    // Handle form submission to publish messages.
+    $('#new_message').submit(function(){
+      client.publish('/messages/new',{
+        username: '<%= current_user.email %>',
+        msg: $("#message_message").val(),
+      });
+      // $("#message_message").val('');
+      // return false;
+    });
+  });
+</script>

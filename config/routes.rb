@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'tab',to: "welcome#tab"
   root 'welcome#index'
   get  '/chatroom' => 'chats#room', :as => :chat
+  get '/messages'=>"messages#index",:as=>:messages
+  post '/messages'=>"messages#create",:as=>:message_create
   resources :jobs
   resources :users
   namespace :admin do
