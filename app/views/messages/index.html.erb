@@ -24,15 +24,16 @@
     // Subscribe to the public channel
     var public_subscription = client.subscribe('/messages/new', function(data) {
       // $('#chat').prepend(data);
-      $('<p></p>').html(data.username+ ":"+data.msg).prependTo('#chat');
+      // $('<p></p>').html(data.username+ ":"+data.msg).prependTo('#chat');
+      eval(data);
     });
 
     // Handle form submission to publish messages.
     $('#new_message').submit(function(){
-      client.publish('/messages/new',{
-        username: '<%= current_user.email %>',
-        msg: $("#message_message").val(),
-      });
+      // client.publish('/messages/new',{
+      //   username: '<%= current_user.email %>',
+      //   msg: $("#message_message").val(),
+      // });
       // $("#message_message").val('');
       // return false;
     });

@@ -1,2 +1,5 @@
 // $("#chat").prepend("<p><%=@message.username%>:<%=@message.message%></p>")
+<% broadcast "/messages/new" do %>
+  $("#chat").prepend("<p><%=@message.username%>:<%=@message.message%></p>")
+<% end  %>
 $("#message_message").val('');
